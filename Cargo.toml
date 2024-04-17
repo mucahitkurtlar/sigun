@@ -1,0 +1,16 @@
+[package]
+name = "sigun"
+version = "0.0.1"
+authors = ["Mücahit Kurtlar"]
+edition = "2021"
+description = "Simple and fast singleton static file server."
+readme = "README.md"
+repository = "https://github.com/mucahitkurtlar/sigun"
+license = "GPL-3.0"
+keywords = ["cdn", "static", "file", "server", "fast"]
+
+[workspace]
+members = [".", "api", "config", "service"]
+
+[dependencies]
+api = { path = "api" }

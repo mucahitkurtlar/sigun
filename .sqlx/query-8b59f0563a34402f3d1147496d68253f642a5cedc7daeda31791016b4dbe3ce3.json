@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "DELETE FROM otp WHERE value = $1",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": []
+  },
+  "hash": "8b59f0563a34402f3d1147496d68253f642a5cedc7daeda31791016b4dbe3ce3"
+}

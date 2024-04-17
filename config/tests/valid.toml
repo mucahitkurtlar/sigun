@@ -1,0 +1,18 @@
+[server]
+host = "localhost"
+port = 8080
+
+[database]
+url = "sqlite:///var/lib/sigun/sigun.db"
+schema = "public"
+
+[auth]
+secret = "my_secret_key"
+allow_external_upload = false
+otp_lifespan = 3600
+
+[file]
+root = "./media"
+subdirs = ["images", "pdfs"]
+allow_mkdir = true
+size_limit = 1048576

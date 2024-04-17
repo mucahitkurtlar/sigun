@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "INSERT INTO otp (value) VALUES ($1)",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": []
+  },
+  "hash": "8a2c30b64fbf8162099f8fc0a012f8d538f837f723544ce3fbdd65a5ca3844cc"
+}

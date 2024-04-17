@@ -1,0 +1,32 @@
+{
+  "db_name": "SQLite",
+  "query": "SELECT * FROM otp WHERE value = $1 AND is_used = false AND created_at > datetime('now', $2)",
+  "describe": {
+    "columns": [
+      {
+        "name": "value",
+        "ordinal": 0,
+        "type_info": "Text"
+      },
+      {
+        "name": "is_used",
+        "ordinal": 1,
+        "type_info": "Bool"
+      },
+      {
+        "name": "created_at",
+        "ordinal": 2,
+        "type_info": "Datetime"
+      }
+    ],
+    "parameters": {
+      "Right": 2
+    },
+    "nullable": [
+      true,
+      false,
+      true
+    ]
+  },
+  "hash": "7df05b42c2c41716eb4d6c083f4e4e1e61a61496b55a576414143038960d2338"
+}

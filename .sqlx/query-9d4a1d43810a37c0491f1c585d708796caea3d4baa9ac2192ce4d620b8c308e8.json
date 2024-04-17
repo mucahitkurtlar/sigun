@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "UPDATE otp SET is_used = true WHERE value = $1",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 1
+    },
+    "nullable": []
+  },
+  "hash": "9d4a1d43810a37c0491f1c585d708796caea3d4baa9ac2192ce4d620b8c308e8"
+}

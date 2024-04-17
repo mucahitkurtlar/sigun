@@ -1,0 +1,14 @@
+[server]
+host = "localhost"
+
+[database]
+url = "postgresql://user:password@localhost:5432/mydatabase"
+schema = "public"
+
+[auth]
+secret = "my_secret_key"
+
+[file]
+path = "/path/to/files"
+size_limit = 1048576
+acceped_mime_types = ["image/jpeg", "image/png", "application/pdf"]

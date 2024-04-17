@@ -1,0 +1,26 @@
+# The host and port the server will listen on for incoming connections.
+[server]
+host = "127.0.0.1"
+port = 4598
+
+# Connection string to the database. Only SQLite is supported at the moment.
+[database]
+url = "sqlite://sigun.db"
+
+[auth]
+# The secret to upload and delete medias from the server. Also used to generate the OTPs
+secret = "your_secret_here"
+# The lifespan of the OTPs in seconds
+otp_lifespan = 3600
+# If the server should allow external uploads using the OTPs
+allow_external_upload = true
+
+[file]
+# The root directory where the medias will be stored
+root = "./tests/media"
+# The subdirectories that will be created inside the root directory
+subdirs = ["images", "pdfs"]
+# If the server should allow the creation of new directories on upload
+allow_mkdir = true
+# The maximum size of the files that can be uploaded in bytes
+size_limit = 262144000
