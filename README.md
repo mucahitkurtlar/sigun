@@ -48,7 +48,7 @@ curl --location 'http://127.0.0.1:4598/new-otp' \
 
 - example response:
 
-```json
+```
 otp-RdKgcDvsnPfjefCa
 ```
 
