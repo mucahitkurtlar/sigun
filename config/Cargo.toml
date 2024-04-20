@@ -8,3 +8,4 @@ thiserror = "1.0.58"
 tokio = { version = "1.37.0", features = ["full"] }
 toml = "0.8.12"
 serde = { version = "1.0.197", features = ["derive"] }
+clap = { version = "4.5.4", features = ["derive"] }

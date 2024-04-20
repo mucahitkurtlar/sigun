@@ -2,4 +2,5 @@
 .env
 config.toml
 .vscode
-sigun.db
+sigun.db*
+sigun.toml

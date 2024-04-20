@@ -1,5 +1,5 @@
 use anyhow::Result;
-use config::Config;
+use config::{load_config, Config};
 use service::{prepare, prepare_db, SqlitePool, SqlitePoolOptions};
 use tokio::net::TcpListener;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
@@ -17,7 +17,7 @@ pub struct AppState {
 
 #[tokio::main]
 async fn start() -> Result<()> {
-    let conf = config::load_config(None).await?;
+    let conf = load_config().await?;
 
     tracing_subscriber::registry()
         .with(

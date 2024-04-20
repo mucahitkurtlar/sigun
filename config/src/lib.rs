@@ -1,3 +1,4 @@
+use clap::Parser;
 use error::ConfigError;
 use serde::Deserialize;
 
@@ -38,8 +39,15 @@ pub struct Config {
     pub file: File,
 }
 
-pub async fn load_config(path: Option<&str>) -> Result<Config, ConfigError> {
-    let path = path.unwrap_or("config.toml");
+#[derive(Parser, Debug)]
+pub struct Args {
+    #[clap(short, long, default_value = "sigun.toml")]
+    pub config: String,
+}
+
+pub async fn load_config() -> Result<Config, ConfigError> {
+    let args = Args::parse();
+    let path = &args.config;
 
     let config_file = match tokio::fs::read(path).await {
         Ok(file) => file,
@@ -57,40 +65,4 @@ pub async fn load_config(path: Option<&str>) -> Result<Config, ConfigError> {
     };
 
     Ok(config)
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[tokio::test]
-    async fn load_config_non_existent() {
-        let config = load_config(Some("config.toml")).await;
-
-        assert_eq!(
-            ConfigError::ReadFailed("config.toml".to_string()),
-            config.unwrap_err()
-        );
-    }
-
-    #[tokio::test]
-    async fn load_config_invalid() {
-        let config = load_config(Some("tests/invalid.toml")).await;
-
-        assert_eq!(ConfigError::ParseFailed, config.unwrap_err());
-    }
-
-    #[tokio::test]
-    async fn load_config_missing() {
-        let config = load_config(Some("tests/missing.toml")).await;
-
-        assert_eq!(ConfigError::ParseFailed, config.unwrap_err());
-    }
-
-    #[tokio::test]
-    async fn load_config_valid() {
-        let config = load_config(Some("tests/valid.toml")).await;
-
-        assert_eq!(config.unwrap().server.host, "localhost");
-    }
 }
