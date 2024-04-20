@@ -17,8 +17,13 @@ pub async fn prepare(config: &Config) -> Result<()> {
     init_dirs(&config.file.root, &sub_dirs).await?;
 
     if !Sqlite::database_exists(config.database.url.as_str()).await? {
-        tracing::info!("Database does not exist. Creating...");
-        Sqlite::create_database(config.database.url.as_str()).await?;
+        tracing::info!("Database file not found, creating...");
+
+        let path = config.database.url.strip_prefix("sqlite://").unwrap();
+        let dir = std::path::Path::new(path).parent().unwrap();
+
+        tokio::fs::create_dir_all(dir).await?;
+        tokio::fs::File::create(path).await?;
     }
 
     Ok(())

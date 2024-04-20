@@ -42,8 +42,6 @@ pub async fn upload(
                 Err(err) => return Err((StatusCode::INTERNAL_SERVER_ERROR, err.to_string())),
             };
             dir = format!("{}/{}", &state.config.file.root, subdir);
-
-            continue;
         } else {
             let data = match field.bytes().await {
                 Ok(data) => data,
