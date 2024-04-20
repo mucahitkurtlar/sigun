@@ -1,6 +1,6 @@
 # sigun
 
-Simple and fast static file server.
+Lightweight file server.
 
 ## Installation
 
