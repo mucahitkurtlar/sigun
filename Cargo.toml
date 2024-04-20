@@ -1,13 +1,13 @@
 [package]
 name = "sigun"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Mücahit Kurtlar"]
 edition = "2021"
-description = "Simple and fast singleton static file server."
+description = "Lightweight file server."
 readme = "README.md"
 repository = "https://github.com/mucahitkurtlar/sigun"
 license = "GPL-3.0"
-keywords = ["cdn", "static", "file", "server", "fast"]
+keywords = ["lightweight", "file", "server"]
 
 [workspace]
 members = [".", "api", "config", "service"]
